@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>Reference</th>
+        <th>Titre</th>
+        <th>Entreprise</th>
+    </tr>
+        <tr *ngFor="let liste of listeEmploi ">
+            <td>{{liste.reference}}</td>
+            <td>{{liste.entreprise}}</td>
+            <td>{{liste.titre}}</td>
+            <td>{{liste.etat}}</td>
+            <input type="button" value="postuler" [disabled]="liste.etat=='false'"/>
+        </tr>
+        <button class="btn btn-primary"  type ="submit" (click)="calcul()"  >Bilan</button>
+        <h5>liste d'emploi non cloturés  :  {{s}}</h5>
+</table>
