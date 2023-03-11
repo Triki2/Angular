@@ -1,0 +1,14 @@
+<p [style.backgroundColor]="color">test works!</p>
+
+<input type="text" [(ngModel)]="color" /><input type="Submit" value="Change Color" (click)="changeColor()">
+<br>
+<hr>
+<input placeholder="choisir couleur" type="text" #t (change)="toway(t.value)"/>
+<div *ngFor="let p of listProdcut">
+    {{p.id}}
+    {{p.title}}
+    {{p.price}}
+    {{p.quantity}}
+    {{p.like}}
+    <input type="submit" value="Buy" [disabled]="p.quantity==0"/> 
+    </div>
