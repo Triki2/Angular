@@ -1,23 +1,18 @@
-<h4>{{titre}}</h4>
-
-
-<input type="text" [value]="s" >
-   
-<div  class="m-2"*ngFor="let e of listArticles" >
-    <div *ngIf="e.categorie!='travail'">
-     
-        
-<div class="card" style="width: 18rem;" [ngStyle]="{'background-color': e.categorie=='Education'? 'blue' : ''}">
-    <div class="card-body" >
-      <h5 class="card-title">{{e.titre}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{e.auteur}}</h6>
-      <p class="card-text">{{e.date}}</p>
-      <p class="card-text">{{e.contenu}}</p>
-      <p class="card-text">{{e.categorie}}</p>
-    </div>
-    
-    </div>
+<h1>{{titre}}</h1>
   
+  <form>
+    <fieldset  *ngFor="let a of listArticles" [ngStyle]="{'background-color': a.categorie=='Education'? 'blue' : ''}">
+      <legend>{{a.titre}}:</legend>
+      <div  [hidden] *ngIf="a.categorie!='travail'">
+      <label for="fname">Auteur :</label>
+      {{a.auteur}}<br><br>
+      <label for="lname">Date :</label>
+      {{a.date}}<br><br>
+      <label for="email">Contenu :</label>
+      {{a.contenu}}<br><br>
     </div>
-  </div>
 
+    </fieldset>
+  </form>
+  <label>Nombre total des articles</label>
+<input type="text" [value]="listArticles.length"/>

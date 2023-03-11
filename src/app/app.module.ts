@@ -7,6 +7,7 @@ import { ArticleComponent } from './article/article.component';
 import { OffresEmploiComponent } from './offres-emploi/offres-emploi.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
