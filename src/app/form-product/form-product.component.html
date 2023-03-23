@@ -1,0 +1,57 @@
+<form #f="ngForm" style="margin-left: 20px;">
+    <div class="col-md-5">
+        <label for="formGroupExampleInput2">Price</label>
+        <input type="number" class="form-control" id="formGroupprice" name="price"  ngModel #p="ngModel" required>
+        <div *ngIf="p.invalid && p.touched">
+            <div *ngIf="p.errors?.['required']">
+               <p class="list-group-item list-group-item-action list-group-item-danger">Price est obligatoire</p> 
+            </div>
+          
+        </div>   
+    </div>
+      <div class="col-md-3">
+        <label for="formGroupExampleInput2">Id</label>
+        <!-- <input type="text" class="form-control" id="formGroupprice" name="id"  pattern="/^[0-9]+$/" ngModel #i="ngModel" required> -->
+        <input type="text" class="form-control" id="formGroupprice" name="id"   ngModel #i="ngModel" required>
+
+        <div *ngIf="i.invalid && i.touched">
+            <div *ngIf="i.errors?.['required']">
+               <p class="list-group-item list-group-item-action list-group-item-danger">L'id est obligatoire</p> 
+            </div>
+            <!-- <div *ngIf="i.errors?.['pattern']">
+                <p class="list-group-item list-group-item-action list-group-item-danger">L'id ne contient que des chiffres</p>
+            </div> -->
+        </div>  
+    </div>
+    <div class="col-md-3">
+      <label for="formGroupExampleInput">Title</label>
+      <input type="text" class="form-control" id="formGrouptitle" placeholder="Title product" name="title" #t="ngModel" minlength="3" ngModel required>
+      <div *ngIf="t.invalid && t.touched">
+        <div *ngIf="t.errors?.['required']">
+            <p class="list-group-item list-group-item-action list-group-item-danger">Le titre est obligatoire</p> 
+        </div>
+        <div *ngIf="t.errors?.['minlength']">
+            <p class="list-group-item list-group-item-action list-group-item-danger">Titre contient minimum 3 caractéres</p> 
+        </div>
+    </div>
+    </div>
+    
+  
+    <div class="col-md-3">
+        <label for="formGroupExampleInput2">Quantite</label>
+        <!-- <input type="number" class="form-control" id="formGroupQuantite" pattern="/^[1-9]\d{2}$/" minlength="3" name="quantite" #q="ngModel" ngModel required> -->
+           <input type="number" class="form-control" id="formGroupQuantite" minlength="3" name="quantite" #q="ngModel" ngModel required>
+
+        <div *ngIf="q.invalid && q.touched">
+            <!-- <div *ngIf="q.errors?.['pattern']">
+                <p class="list-group-item list-group-item-action list-group-item-danger">Quantité doit etre >0</p> 
+            </div> -->
+            <div *ngIf="q.errors?.['minlength']">
+                <p class="list-group-item list-group-item-action list-group-item-danger">Quantité contient minimum 3 chiffres</p> 
+            </div>
+        </div> 
+    </div>
+     <div>
+        <input style="margin-top: 20px;" type="submit" value="Save" [disabled]="f.invalid" (click)="showForm(f)" class="btn btn-warning"/>
+     </div>
+  </form>
